@@ -3,8 +3,8 @@
   <strong>What you really wanted when you asked for viewport units.</strong>
 </p>
 <p align="center">
-  <img alt="When the OS has an overlaid scroll bar, 100vw matches the document width." src="assets/no-scrollbar.gif">
-  <img alt="When the OS has an inline, fixed scroll bar, 100vw matches the document width plus the scroll bar width." src="assets/scrollbar.gif"> 
+  <img alt="When the OS has an overlaid scroll bar, 100vw matches the document width." src="https://raw.githubusercontent.com/colingourlay/root-units/master/assets/no-scrollbar.gif">
+  <img alt="When the OS has an inline, fixed scroll bar, 100vw matches the document width plus the scroll bar width." src="https://raw.githubusercontent.com/colingourlay/root-units/master/assets/scrollbar.gif"> 
 </p>
 
 ## Usage
