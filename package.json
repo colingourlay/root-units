@@ -1,0 +1,19 @@
+{
+  "name": "root-units",
+  "description": "What you really wanted when you asked for viewport units",
+  "repository": "colingourlay/root-units",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<pre class=\"viewport-units\">100vw</pre><pre class=\"root-units\">var(--rw)</pre>' ]"
+  },
+  "devDependencies": {
+    "bankai": "^7.6.2"
+  },
+  "keywords": [
+    "css",
+    "custom properties",
+    "viewport units",
+    "scroll"
+  ]
+}
