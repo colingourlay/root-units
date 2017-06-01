@@ -1,9 +1,11 @@
-#root-units
-
-What you really wanted when you asked for viewport units.
-
-![assets/no-scrollbar.gif](When the OS has an overlaid scroll bar, 100vw matches the document width)
-![assets/scrollbar.gif](When the OS has an inline, fixed scroll bar, 100vw matches the document width plus the scroll bar width)
+<h1 align="center">root-units<span aria-role="presentation"><br>💯+🎚=👌</span></h1>
+<p align="center">
+  <strong>What you really wanted when you asked for viewport units.</strong>
+</p>
+<p align="center">
+  <img alt="When the OS has an overlaid scroll bar, 100vw matches the document width." src="assets/no-scrollbar.gif">
+  <img alt="When the OS has an inline, fixed scroll bar, 100vw matches the document width plus the scroll bar width." src="assets/scrollbar.gif"> 
+</p>
 
 ## Usage
 
@@ -26,7 +28,7 @@ require('root-units').install();
 
 ...because this:
 
-![assets/resize.gif](Root units update as browser is resized)
+![Root units update as browser is resized](assets/resize.gif)
 
 ## How it works
 
@@ -81,4 +83,4 @@ Clone this repo then:
 $ npm install && npm start
 ```
 
-...and open [http://localhost:8080](http://localhost:8080)
+...and open 🔗 [localhost:8080](http://localhost:8080)
