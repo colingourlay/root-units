@@ -44,7 +44,7 @@ Worry not: if the root element's size changes, further events are ignored until 
 
 ### How it *actually* works
 
-* Event handlers are attached to `window`'s `resize` and `orientationchange` events, which can schedule a measurement of the root element's dimensions. By default, this posponed to the next render frame (using `requestAnimationFrame`).
+* Event handlers are attached to `window`'s `resize` and `orientationchange` events, which can schedule a measurement of the root element's dimensions. By default, this is posponed to the next render frame (using `requestAnimationFrame`).
 * If the dimensions have changed since the last measurement, a mutation is scheduled, which will update the CSS custom properties. By default, this happens in the same frame as the measurement.
 * A measurement is manually scheduled, which allows the initial CSS custom properties to be created.
 
