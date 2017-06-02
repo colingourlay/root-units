@@ -18,6 +18,8 @@ function measureTask() {
 function mutateTask() {
   rootElement.style.setProperty('--rw', size.w + 'px');
   rootElement.style.setProperty('--rh', size.h + 'px');
+  rootElement.style.setProperty('--rmax', Math.max(size.w, size.h) + 'px');
+  rootElement.style.setProperty('--rmin', Math.min(size.w, size.h) + 'px');
   willMutate = false;
 }
 
