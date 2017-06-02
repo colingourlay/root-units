@@ -42,7 +42,7 @@ When you call `.install()`, the following happens*:
 
 Worry not: if the root element's size changes, further events are ignored until the CSS custom properties have been updated. This results in as few DOM reads/writes as possible. Even more importantly, **measurements and mutations follow a simple asynchronous scheduling pattern which you can control**. There's not much point in you taking the time to optimise DOM reads/writes in your app, then drop in this little utility and cause a bunch of unwanted layout thrashing.
 
-### How it *actually* works
+### \*How it *actually* works
 
 * Event handlers are attached to `window`'s `resize` and `orientationchange` events, which can schedule a measurement of the root element's dimensions. By default, this is posponed to the next render frame (using `requestAnimationFrame`).
 * If the dimensions have changed since the last measurement, a mutation is scheduled, which will update the CSS custom properties. By default, this happens in the same frame as the measurement.
@@ -67,7 +67,7 @@ require('root-units')
 });
 ```
 
-...or appoint a purpose-built library such as [fastdom](https://github.com/wilsonpage/fastdom)):
+...or appoint a purpose-built library such as [fastdom](https://github.com/wilsonpage/fastdom):
 
 ```js
 const fastdom = require('fastdom');
@@ -81,12 +81,16 @@ require('root-units')
 
 Find what works best for you!
 
-## Example
+## Try it out
 
-Clone this repo then:
+1) Clone this repo, 2) install the development server and 3) fire it up:
 
 ```shell
-$ npm install && npm start
+git clone git@github.com:colingourlay/root-units.git
+cd root-units
+npm install && npm start
 ```
 
-...and open 🔗 [localhost:8080](http://localhost:8080)
+4) Open 🔗 [localhost:8080](http://localhost:8080) and start poking around your dev tools.
+
+To switch between examples, which demonstrate alternative scheduling strategies, (un)comment the relevant sections in [example.js](example.js)
