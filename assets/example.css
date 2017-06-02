@@ -1,26 +1,40 @@
-html, body {
-  margin: 0;
-  padding: 0;
+* {
+  box-sizing: border-box;
 }
 
 html {
-  min-height: 102vh;
-  overflow-x: hidden;
+  font-size: 24px;
 }
 
-pre {
-  box-sizing: border-box;
-  border: 1.5rem solid rgba(0, 0, 0, .125);
-  padding: .5rem;
+body {
+  margin: 0;
+  background-color: paleturquoise;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+  height: 102vh;
+  background-color: palegoldenrod;
+  font-family: monospace;
   text-align: center;
 }
 
-pre.viewport-units {
+div {
+  border: 1rem solid rgba(0, 0, 0, .125);
+  margin: 0 -50%;
+  padding: 1rem;
+}
+
+.viewport-units {
   width: 100vw;
   background-color: palevioletred;
 }
 
-pre.root-units {
+.root-units {
   width: var(--rw);
-  background-color: paleturquoise;
+  background-color: palegreen;
 }

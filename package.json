@@ -5,10 +5,11 @@
   "version": "1.0.2",
   "main": "index.js",
   "scripts": {
-    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<pre class=\"viewport-units\">100vw</pre><pre class=\"root-units\">var(--rw)</pre>' ]"
+    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<main><div class=\"viewport-units\">100vw</div><div class=\"root-units\">var(--rw)</div></main>' ]"
   },
   "devDependencies": {
-    "bankai": "^7.6.2"
+    "bankai": "^7.6.2",
+    "fastdom": "^1.0.6"
   },
   "keywords": [
     "css",

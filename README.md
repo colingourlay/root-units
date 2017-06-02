@@ -40,40 +40,46 @@ When you call `.install()`, the following happens*:
 
 ### *"…but [#perfmatters](https://twitter.com/hashtag/perfmatters?src=hash)!"*, I hear you cry…
 
-Worry not: as soon as measurements have changed, further events are ignored until the CSS custom properties have been updated. This results in as few DOM reads/writes as possible. Even more importantly, **measurements and mutations follow a simple asynchronous scheduling pattern which you can control**. There's not much point in you taking the time to optimise DOM reads/writes in your app, then drop in this little utility which fires up its own render loop and causes a bunch of layout thrashing.
+Worry not: if the root element's size changes, further events are ignored until the CSS custom properties have been updated. This results in as few DOM reads/writes as possible. Even more importantly, **measurements and mutations follow a simple asynchronous scheduling pattern which you can control**. There's not much point in you taking the time to optimise DOM reads/writes in your app, then drop in this little utility and cause a bunch of unwanted layout thrashing.
 
 ### How it *actually* works
 
-* Event handlers are attached to `window`'s `resize` and `orientationchange` events, which schedule a measurement of the root element's dimensions. By default, this is postponed to the next tick of the event loop (using `setTimeout`).
-* A measurement is manually scheduled, followed by a manually scheduled mutation (this is how the initial CSS custom properties are created).
-* Each scheduled mutation will update the CSS custom properties if they've changed, then re-schedule itself (creating a loop). By default, this happens in the next frame (using `requestAnimationFrame`).
+* Event handlers are attached to `window`'s `resize` and `orientationchange` events, which can schedule a measurement of the root element's dimensions. By default, this posponed to the next render frame (using `requestAnimationFrame`).
+* If the dimensions have changed since the last measurement, a mutation is scheduled, which will update the CSS custom properties. By default, this happens in the same frame as the measurement.
+* A measurement is manually scheduled, which allows the initial CSS custom properties to be created.
 
-If you want to take full control of this scheduling, you can provide your own functions as options and manually call `measure` and `mutate` when it best suits your app's architecture:
+If you want to take full control of this scheduling, you can provide your own functions as options. They'll be called with a single argument (either the `measureTask` or `mutateTask` function), letting you manually run those tasks when it best suits your app's architecture:
 
 ```js
 require('root-units')
 .install({
-  scheduleMeasurement: measure => {
-    setTimeout(measure, 0);
-  },
-  scheduleMutation: mutate => {
-    window.requestAnimationFrame(mutate);
-  }
+  measure: window.requestAnimationFrame,
+  mutate: mutateTask => mutateTask()
 });
 ```
 
-The functions above show the workings of the internal defaults, but you're free to replace them with whatever you want, e.g. [fastdom](https://github.com/wilsonpage/fastdom)):
+The above example shows the default behaviour, but you're free to replace that with whatever strategy suits you. Maybe you want to also run `measureTask` in the same tick of the event loop:
 
+```js
+require('root-units')
+.install({
+  measure: measureTask => measureTask()
+});
+```
+
+...or appoint a purpose-built library such as [fastdom](https://github.com/wilsonpage/fastdom)):
 
 ```js
 const fastdom = require('fastdom');
 
 require('root-units')
 .install({
-  scheduleMeasurement: fastdom.measure,
-  scheduleMutation: fastdom.mutate
+  measure: fastdom.measure.bind(fastdom),
+  mutate: fastdom.mutate.bind(fastdom)
 });
 ```
+
+Find what works best for you!
 
 ## Example
 
