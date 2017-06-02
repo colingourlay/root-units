@@ -35,7 +35,7 @@ function install(options) {
   }
   
   if (!(rootElement = document.documentElement)) {
-    return setTimeout(activate, 50, options);
+    return setTimeout(install, 50, options);
   }
 
   options = Object(options);
