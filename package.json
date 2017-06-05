@@ -5,16 +5,25 @@
   "version": "2.1.1",
   "main": "index.js",
   "scripts": {
-    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<main><div class=\"viewport-units\">100vw</div><div class=\"root-units\">var(--rw)</div></main>' ]"
+    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<main><div class=\"viewport-units\">100vw</div><div class=\"root-units\">var(--rw)</div></main>' ]",
+    "test": "xo"
   },
   "devDependencies": {
     "bankai": "^7.6.2",
-    "fastdom": "^1.0.6"
+    "fastdom": "^1.0.6",
+    "xo": "^0.18.2"
   },
   "keywords": [
     "css",
     "custom properties",
     "viewport units",
     "scroll"
-  ]
+  ],
+  "xo": {
+    "envs": [
+      "browser"
+    ],
+    "esnext": false,
+    "space": true
+  }
 }

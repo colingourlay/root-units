@@ -1,3 +1,9 @@
+var size = {};
+var willMutate;
+var rootElement;
+var measure;
+var mutate;
+
 function invoke(fn) {
   fn();
 }
@@ -33,7 +39,7 @@ function install(options) {
   if (rootElement) {
     return;
   }
-  
+
   if (!(rootElement = document.documentElement)) {
     return setTimeout(install, 50, options);
   }
@@ -44,8 +50,6 @@ function install(options) {
   window.addEventListener('resize', invalidateSize);
   window.addEventListener('orientationchange', invalidateSize);
   invalidateSize();
-};
-
-var size = {}, willMutate, rootElement, measure, mutate;
+}
 
 module.exports.install = install;
