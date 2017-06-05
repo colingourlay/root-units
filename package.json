@@ -5,12 +5,14 @@
   "version": "2.1.1",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --single-quote --write index.js",
     "start": "bankai start example.js -H [ --css='assets/example.css' --body='<main><div class=\"viewport-units\">100vw</div><div class=\"root-units\">var(--rw)</div></main>' ]",
     "test": "xo"
   },
   "devDependencies": {
     "bankai": "^7.6.2",
     "fastdom": "^1.0.6",
+    "prettier": "^1.4.2",
     "xo": "^0.18.2"
   },
   "keywords": [
