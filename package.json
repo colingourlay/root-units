@@ -2,7 +2,7 @@
   "name": "root-units",
   "description": "What you really wanted when you asked for viewport units",
   "repository": "colingourlay/root-units",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "main": "index.js",
   "scripts": {
     "style": "xo && prettier --single-quote --write index.js",
