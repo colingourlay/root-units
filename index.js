@@ -4,10 +4,6 @@ var rootElement;
 var measure;
 var mutate;
 
-function invoke(fn) {
-  fn();
-}
-
 function measureTask() {
   var nextSize = {
     w: rootElement.clientWidth,
@@ -46,7 +42,7 @@ function install(options) {
 
   options = Object(options);
   measure = options.measure || window.requestAnimationFrame;
-  mutate = options.mutate || invoke;
+  mutate = options.mutate || mutateTask;
   window.addEventListener('resize', invalidateSize);
   window.addEventListener('orientationchange', invalidateSize);
   invalidateSize();
