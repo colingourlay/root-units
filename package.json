@@ -5,9 +5,8 @@
   "version": "2.1.1",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --single-quote --write index.js",
-    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<main><div class=\"viewport-units\">100vw</div><div class=\"root-units\">var(--rw)</div></main>' ]",
-    "test": "xo"
+    "style": "xo && prettier --single-quote --write index.js",
+    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<main><div class=\"viewport-units\">100vw</div><div class=\"root-units\">var(--rw)</div></main>' ]"
   },
   "devDependencies": {
     "bankai": "^7.6.2",
