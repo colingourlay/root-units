@@ -19,9 +19,9 @@ require('root-units').install();
 
 ```css
 .Thing {
-  width: var(--vw);
+  width: var(--rw);
   /* ^ 100% of <html> width */
-  height: calc(var(--vh) / 2);
+  height: calc(var(--rh) / 2);
   /* ^ 50% of <html> height */
 }
 ```
