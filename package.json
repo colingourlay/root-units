@@ -6,11 +6,14 @@
   "main": "index.js",
   "scripts": {
     "style": "xo && prettier --single-quote --write index.js",
-    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<main><div class=\"viewport-units\">100vw</div><div class=\"root-units\">var(--rw)</div></main>' ]"
+    "start": "bankai start example.js -H [ --css='assets/example.css' --body='<main><div class=\"viewport-units\">100vw</div><div class=\"root-units\">var(--rw)</div></main>' ]",
+    "release": "np",
+    "prepublishOnly": "npm run style"
   },
   "devDependencies": {
-    "bankai": "^7.6.2",
+    "bankai": "^9.15.2",
     "fastdom": "^1.0.6",
+    "np": "^5.1.2",
     "prettier": "^1.4.2",
     "xo": "^0.18.2"
   },
