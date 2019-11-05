@@ -49,3 +49,4 @@ function install(options) {
 }
 
 module.exports.install = install;
+module.exports.invalidateSize = invalidateSize;
